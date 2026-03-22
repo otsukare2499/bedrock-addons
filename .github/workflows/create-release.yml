@@ -1,0 +1,105 @@
+name: Create Release
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+jobs:
+  release:
+    # devからmainへのマージ かつ マイルストーン設定時のみ実行
+    if: |
+      github.event.pull_request.merged == true && 
+      github.event.pull_request.head.ref == 'dev' &&
+      github.event.pull_request.milestone != null
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      # ── Milestoneタイトルを安全なタグ名に変換 ────────────────────────
+      - name: Generate safe tag from Milestone
+        id: get_tag
+        run: |
+          TITLE="${{ github.event.pull_request.milestone.title }}"
+          SAFE_TAG=$(echo "$TITLE" | sed 's/ /-/g' | sed 's/[~^:?*\[\\@{} ]//g' | sed 's/^\.*//; s/\.*$//; s/^-*//; s/-*$//')
+
+          if [ -z "$SAFE_TAG" ]; then
+            echo "::error::Milestone title '$TITLE' resulted in an empty tag."
+            exit 1
+          fi
+
+          echo "tag=$SAFE_TAG" >> "$GITHUB_OUTPUT"
+          echo "original_title=$TITLE" >> "$GITHUB_OUTPUT"
+
+      # ── Checkout ──────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Build full zip (存在するファイルのみ同梱) ──────────────────────
+      - name: Build full zip
+        run: |
+          TAG="${{ steps.get_tag.outputs.tag }}"
+          ZIP_NAME="bedrock-samples-$TAG-full.zip"
+          
+          # 対象リスト
+          ITEMS="behavior_pack/ resource_pack/ documentation/ metadata/ README.md LICENSE.md CONTRIBUTING.md"
+          TARGETS=""
+
+          for item in $ITEMS; do
+            if [ -e "$item" ]; then
+              TARGETS="$TARGETS $item"
+            fi
+          done
+
+          if [ -z "$TARGETS" ]; then
+            echo "::error::No files found to zip!"
+            exit 1
+          fi
+
+          zip -r "$ZIP_NAME" $TARGETS
+
+      # ── Build min zip (存在するファイルからバイナリ除外) ──────────────
+      - name: Build min zip
+        run: |
+          TAG="${{ steps.get_tag.outputs.tag }}"
+          ZIP_NAME="bedrock-samples-$TAG-min.zip"
+          
+          ITEMS="behavior_pack/ resource_pack/ documentation/ metadata/ README.md LICENSE.md CONTRIBUTING.md"
+          TARGETS=""
+
+          for item in $ITEMS; do
+            if [ -e "$item" ]; then
+              TARGETS="$TARGETS $item"
+            fi
+          done
+
+          # -x でバイナリを除外
+          zip -r "$ZIP_NAME" $TARGETS \
+            -x '*.png' '*.tga' '*.jpg' '*.fsb' '*.ogg' '*.pdn' '*.hdr'
+
+      # ── Create GitHub Release ─────────────────────────────────────────
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.get_tag.outputs.tag }}
+          name: ${{ steps.get_tag.outputs.original_title }}
+          generate_release_notes: true
+          body: |
+            ## Minecraft Bedrock Add-Ons
+            
+            Released via Milestone: **${{ github.event.pull_request.milestone.title }}**
+            (PR #${{ github.event.pull_request.number }} from dev to main)
+
+            ### Assets
+            - **full** — Complete samples including all textures, models, and sounds
+            - **min** — Text-only samples (JSON, HTML, MD) with binary files excluded
+          draft: false
+          prerelease: false
+          make_latest: true
+          files: |
+            bedrock-samples-${{ steps.get_tag.outputs.tag }}-full.zip
+            bedrock-samples-${{ steps.get_tag.outputs.tag }}-min.zip

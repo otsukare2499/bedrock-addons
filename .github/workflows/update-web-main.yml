@@ -1,0 +1,43 @@
+name: Update web main
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+jobs:
+  deploy:
+    # devからmainへのマージ時のみ実行
+    if: |
+      github.event.pull_request.merged == true && 
+      github.event.pull_request.head.ref == 'dev'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # フォルダがあるか事前にチェック
+      - name: Check documentation folder
+        id: check_dir
+        run: |
+          if [ -d "documentation" ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "documentation folder not found, skipping deploy."
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy to GitHub Pages
+        if: steps.check_dir.outputs.exists == 'true'
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: gh-pages
+          build_dir: documentation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
