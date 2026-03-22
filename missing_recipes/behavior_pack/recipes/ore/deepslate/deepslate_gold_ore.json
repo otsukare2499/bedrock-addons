@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "missing_recipes:deepslate_gold_ore"
+    },
+    "tags": ["crafting_table"],
+    "group": "ore",
+    "pattern": [
+      " R ",
+      "RDR",
+      " R "
+    ],
+    "key": {
+      "D": {
+        "item": "minecraft:deepslate"
+      },
+      "R": {
+        "item": "minecraft:raw_gold"
+      }
+    },
+    "result": {
+      "item": "minecraft:deepslate_gold_ore",
+      "count": 1
+    }
+  }
+}
