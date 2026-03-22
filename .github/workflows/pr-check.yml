@@ -1,0 +1,65 @@
+name: PR Check for Main and Dev
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+    # マイルストーンの付け外しをトリガーにする
+    types: [opened, edited, milestoned, demilestoned, synchronize]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR Configuration
+        run: |
+          echo "### 🔍 PR Configuration Check" >> $GITHUB_STEP_SUMMARY
+          
+          SUCCESS=true
+          BASE_REF="${{ github.base_ref }}"
+          HEAD_REF="${{ github.event.pull_request.head.ref }}"
+          MILESTONE="${{ github.event.pull_request.milestone.title }}"
+
+          # ── 1. 共通必須チェック (Milestone) ────────────────────────
+          echo "#### 📋 Requirements" >> $GITHUB_STEP_SUMMARY
+
+          if [[ -z "$MILESTONE" ]]; then
+            echo "::error::Milestone is required for all PRs to main/dev."
+            echo "- ❌ **Milestone:** 未設定 (セットしてください)" >> $GITHUB_STEP_SUMMARY
+            SUCCESS=false
+          else
+            echo "- ✅ **Milestone:** 設定済み (\`$MILESTONE\`)" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          # ── 2. mainブランチへのルール ──────────────────────────────
+          if [[ "$BASE_REF" == "main" ]]; then
+            echo "#### 🚀 Main Branch Rules" >> $GITHUB_STEP_SUMMARY
+            
+            # dev からのマージかチェック
+            if [[ "$HEAD_REF" != "dev" ]]; then
+              echo "::error::PR to 'main' must be from 'dev' branch."
+              echo "- ❌ **送信元ブランチ:** \`dev\` である必要があります (現在: \`$HEAD_REF\`)" >> $GITHUB_STEP_SUMMARY
+              SUCCESS=false
+            else
+              echo "- ✅ **送信元ブランチ:** 正解 (\`dev\`)" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            echo "- ⚠️ **マージ方式:** **REBASE** を使用してください" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          # ── 3. devブランチへのルール ───────────────────────────────
+          if [[ "$BASE_REF" == "dev" ]]; then
+            echo "#### 🛠️ Dev Branch Rules" >> $GITHUB_STEP_SUMMARY
+            echo "- ⚠️ **マージ方式:** **SQUASH** を使用してください" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          # ── 最終判定 ────────────────────────────────────────────────
+          if [ "$SUCCESS" = false ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "> ❌ **PR設定に不備があります。修正後に再度チェックしてください。**" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "> ✨ **All checks passed! ルールに従ってマージ可能です。**" >> $GITHUB_STEP_SUMMARY
