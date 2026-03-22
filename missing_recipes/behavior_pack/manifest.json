@@ -1,0 +1,21 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Adds missing recipes for vanilla items.",
+    "name": "Missing Recipes",
+    "uuid":"a33bca36-9c99-4633-92a7-4d200db10fa3",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "description": "Adds missing recipes for vanilla items.",
+      "type": "data",
+      "uuid": "c5d5c828-aef1-4419-8a15-0f004d3f5a4f",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "product_type": "addon"
+  }
+}
