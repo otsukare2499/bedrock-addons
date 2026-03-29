@@ -2,7 +2,8 @@ import { world } from "@minecraft/server"
 
 const INDESTRUCTIBLE_BLOCK_TYPE_IDS = [
     "minecraft:mob_spawner",
-    "minecraft:trial_spawner"
+    "minecraft:trial_spawner",
+    "minecraft:vault"
 ]
 
 world.beforeEvents.playerBreakBlock.subscribe((event) => {
