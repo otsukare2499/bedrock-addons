@@ -1,0 +1,27 @@
+{
+    "format_version": 2,
+    "header": {
+      "description": "Makes vanilla Blocks Indestructible.",
+      "name": "Indestructible Blocks",
+      "uuid": "48494ad8-910c-4ec1-8860-078386d264fa",
+      "version": [1, 0, 0],
+      "min_engine_version": [1, 21, 0]
+    },
+    "modules": [
+      {
+        "type": "script",
+        "uuid": "bd4d9839-137c-4b7e-9ebd-14ef59182bbb",
+        "version": [1, 0, 0],
+        "entry": "scripts/main.js"
+      }
+    ],
+    "dependencies": [
+      {
+        "module_name": "@minecraft/server",
+        "version": "1.10.0"
+      }
+    ],
+    "metadata": {
+      "product_type": "addon"
+    }
+  }
