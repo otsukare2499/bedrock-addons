@@ -5,7 +5,11 @@
       "identifier": "missing_recipes:deepslate_lapis_ore"
     },
     "tags": ["crafting_table"],
-    "group": "ore",
+    "unlock": [
+      {
+        "item": "minecraft:deepslate_lapis_ore"
+      }
+    ],
     "pattern": [
       " L ",
       "LDL",
@@ -20,8 +24,7 @@
       }
     },
     "result": {
-      "item": "minecraft:deepslate_lapis_ore",
-      "count": 1
+      "item": "minecraft:deepslate_lapis_ore"
     }
   }
 }

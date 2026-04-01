@@ -5,7 +5,11 @@
       "identifier": "missing_recipes:copper_ore"
     },
     "tags": ["crafting_table"],
-    "group": "ore",
+    "unlock": [
+      {
+        "item": "minecraft:copper_ore"
+      }
+    ],
     "pattern": [
       " R ",
       "RSR",
@@ -20,8 +24,7 @@
       }
     },
     "result": {
-      "item": "minecraft:copper_ore",
-      "count": 1
+      "item": "minecraft:copper_ore"
     }
   }
 }

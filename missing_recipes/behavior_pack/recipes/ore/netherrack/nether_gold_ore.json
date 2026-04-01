@@ -5,7 +5,11 @@
       "identifier": "missing_recipes:nether_gold_ore"
     },
     "tags": ["crafting_table"],
-    "group": "ore",
+    "unlock": [
+      {
+        "item": "minecraft:nether_gold_ore"
+      }
+    ],
     "pattern": [
       " G ",
       "GNG",
@@ -20,8 +24,7 @@
       }
     },
     "result": {
-      "item": "minecraft:nether_gold_ore",
-      "count": 1
+      "item": "minecraft:nether_gold_ore"
     }
   }
 }

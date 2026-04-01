@@ -5,7 +5,11 @@
       "identifier": "missing_recipes:gold_ore"
     },
     "tags": ["crafting_table"],
-    "group": "ore",
+    "unlock": [
+      {
+        "item": "minecraft:gold_ore"
+      }
+    ],
     "pattern": [
       " R ",
       "RSR",
@@ -20,8 +24,7 @@
       }
     },
     "result": {
-      "item": "minecraft:gold_ore",
-      "count": 1
+      "item": "minecraft:gold_ore"
     }
   }
 }

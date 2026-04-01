@@ -5,7 +5,11 @@
       "identifier": "missing_recipes:redstone_ore"
     },
     "tags": ["crafting_table"],
-    "group": "ore",
+    "unlock": [
+      {
+        "item": "minecraft:redstone_ore"
+      }
+    ],
     "pattern": [
       " R ",
       "RSR",
@@ -20,8 +24,7 @@
       }
     },
     "result": {
-      "item": "minecraft:redstone_ore",
-      "count": 1
+      "item": "minecraft:redstone_ore"
     }
   }
 }

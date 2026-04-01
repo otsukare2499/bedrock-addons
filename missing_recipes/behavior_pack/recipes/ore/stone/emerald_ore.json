@@ -5,7 +5,11 @@
       "identifier": "missing_recipes:emerald_ore"
     },
     "tags": ["crafting_table"],
-    "group": "ore",
+    "unlock": [
+      {
+        "item": "minecraft:emerald_ore"
+      }
+    ],
     "pattern": [
       " E ",
       "ESE",
@@ -20,8 +24,7 @@
       }
     },
     "result": {
-      "item": "minecraft:emerald_ore",
-      "count": 1
+      "item": "minecraft:emerald_ore"
     }
   }
 }
