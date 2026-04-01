@@ -5,7 +5,11 @@
       "identifier": "missing_recipes:lapis_ore"
     },
     "tags": ["crafting_table"],
-    "group": "ore",
+    "unlock": [
+      {
+        "item": "minecraft:lapis_ore"
+      }
+    ],
     "pattern": [
       " L ",
       "LSL",
@@ -20,8 +24,7 @@
       }
     },
     "result": {
-      "item": "minecraft:lapis_ore",
-      "count": 1
+      "item": "minecraft:lapis_ore"
     }
   }
 }

@@ -5,7 +5,11 @@
       "identifier": "missing_recipes:coal_ore"
     },
     "tags": ["crafting_table"],
-    "group": "ore",
+    "unlock": [
+      {
+        "item": "minecraft:coal_ore"
+      }
+    ],
     "pattern": [
       " C ",
       "CSC",
@@ -20,8 +24,7 @@
       }
     },
     "result": {
-      "item": "minecraft:coal_ore",
-      "count": 1
+      "item": "minecraft:coal_ore"
     }
   }
 }

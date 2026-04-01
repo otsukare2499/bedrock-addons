@@ -5,7 +5,11 @@
       "identifier": "missing_recipes:deepslate_redstone_ore"
     },
     "tags": ["crafting_table"],
-    "group": "ore",
+    "unlock": [
+      {
+        "item": "minecraft:deepslate_redstone_ore"
+      }
+    ],
     "pattern": [
       " R ",
       "RDR",
@@ -20,8 +24,7 @@
       }
     },
     "result": {
-      "item": "minecraft:deepslate_redstone_ore",
-      "count": 1
+      "item": "minecraft:deepslate_redstone_ore"
     }
   }
 }

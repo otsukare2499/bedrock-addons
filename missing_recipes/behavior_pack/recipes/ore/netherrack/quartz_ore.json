@@ -5,7 +5,11 @@
       "identifier": "missing_recipes:quartz_ore"
     },
     "tags": ["crafting_table"],
-    "group": "ore",
+    "unlock": [
+      {
+        "item": "minecraft:quartz_ore"
+      }
+    ],
     "pattern": [
       " Q ",
       "QNQ",
@@ -20,8 +24,7 @@
       }
     },
     "result": {
-      "item": "minecraft:quartz_ore",
-      "count": 1
+      "item": "minecraft:quartz_ore"
     }
   }
 }
