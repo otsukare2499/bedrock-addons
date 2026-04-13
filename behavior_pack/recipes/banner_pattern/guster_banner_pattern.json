@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "missing_recipes:guster_banner_pattern"
+    },
+    "tags": ["crafting_table"],
+    "unlock": [
+      {
+        "item": "minecraft:breeze_rod"
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:paper"
+      },
+      {
+        "item": "minecraft:breeze_rod"
+      }
+    ],
+    "result": {
+      "item": "minecraft:guster_banner_pattern"
+    }
+  }
+}

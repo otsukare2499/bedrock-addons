@@ -1,0 +1,21 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_smithing_transform": {
+    "description": {
+      "identifier": "missing_recipes:netherite_horse_armor"
+      },    
+      "tags": [ "smithing_table" ],
+      "template": {
+        "item": "minecraft:netherite_upgrade_smithing_template"
+      },
+      "base": {
+        "item": "minecraft:diamond_horse_armor"
+      },
+      "addition": {
+        "item": "minecraft:netherite_ingot"
+      },
+      "result": {
+        "item": "minecraft:netherite_horse_armor"
+    }
+  }
+}

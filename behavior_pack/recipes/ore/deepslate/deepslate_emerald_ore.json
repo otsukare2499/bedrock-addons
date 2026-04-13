@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "missing_recipes:deepslate_emerald_ore"
+    },
+    "tags": ["crafting_table"],
+    "unlock": [
+      {
+        "item": "minecraft:deepslate_emerald_ore"
+      }
+    ],
+    "pattern": [
+      " E ",
+      "EDE",
+      " E "
+    ],
+    "key": {
+      "D": {
+        "item": "minecraft:deepslate"
+      },
+      "E": {
+        "item": "minecraft:emerald"
+      }
+    },
+    "result": {
+      "item": "minecraft:deepslate_emerald_ore"
+    }
+  }
+}

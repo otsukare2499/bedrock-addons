@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "missing_recipes:gilded_blackstone"
+    },
+    "tags": ["crafting_table"],
+    "unlock": [
+      {
+        "item": "minecraft:blackstone"
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:blackstone"
+      },
+       {
+        "item": "minecraft:gold_nugget",
+        "count": 5
+      }
+    ],
+    "result": {
+      "item": "minecraft:gilded_blackstone"
+    }
+  }
+}

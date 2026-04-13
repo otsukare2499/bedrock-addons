@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "missing_recipes:piglin_banner_patter"
+    },
+    "tags": ["crafting_table"],
+    "unlock": [
+      {
+        "item": "minecraft:piglin_head"
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:paper"
+      },
+      {
+        "item": "minecraft:piglin_head"
+      }
+    ],
+    "result": {
+      "item": "minecraft:piglin_banner_pattern"
+    }
+  }
+}

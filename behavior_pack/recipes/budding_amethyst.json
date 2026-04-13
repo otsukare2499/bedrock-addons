@@ -1,0 +1,11 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "missing_recipes:budding_amethyst"
+    },
+    "tags": [ "furnace" ],
+    "input": "minecraft:amethyst_block",
+    "output": "minecraft:budding_amethyst"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "missing_recipes:coal_ore"
+    },
+    "tags": ["crafting_table"],
+    "unlock": [
+      {
+        "item": "minecraft:coal_ore"
+      }
+    ],
+    "pattern": [
+      " C ",
+      "CSC",
+      " C "
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:stone"
+      },
+      "C": {
+        "item": "minecraft:coal"
+      }
+    },
+    "result": {
+      "item": "minecraft:coal_ore"
+    }
+  }
+}

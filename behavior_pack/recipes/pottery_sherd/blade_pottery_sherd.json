@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "missing_recipes:blade_pottery_sherd"
+    },
+    "tags": [ "crafting_table" ],
+    "unlock": [
+      {
+        "item": "minecraft:blade_pottery_sherd"
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:brick"
+      },
+      {
+        "item": "minecraft:blade_pottery_sherd"
+      }
+    ],
+    "result": {
+      "item": "minecraft:blade_pottery_sherd",
+      "count": 2
+    }
+  }
+}
