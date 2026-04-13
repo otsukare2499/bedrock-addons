@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "missing_recipes:nether_gold_ore"
+    },
+    "tags": ["crafting_table"],
+    "unlock": [
+      {
+        "item": "minecraft:nether_gold_ore"
+      }
+    ],
+    "pattern": [
+      " G ",
+      "GNG",
+      " G "
+    ],
+    "key": {
+      "N": {
+        "item": "minecraft:netherrack"
+      },
+      "G": {
+        "item": "minecraft:gold_nugget"
+      }
+    },
+    "result": {
+      "item": "minecraft:nether_gold_ore"
+    }
+  }
+}

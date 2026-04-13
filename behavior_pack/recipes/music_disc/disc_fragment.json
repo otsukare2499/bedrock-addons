@@ -1,0 +1,23 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "missing_recipes:disc_fragment_5"
+    },
+    "unlock": [
+      {
+        "item": "disc_fragment_5"
+      }
+    ],    
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "minecraft:music_disc_5"
+      }
+    ],
+    "result": {
+      "item": "minecraft:disc_fragment_5",
+      "count": 9
+    }
+  }
+}

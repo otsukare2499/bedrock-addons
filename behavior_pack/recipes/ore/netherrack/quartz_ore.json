@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "missing_recipes:quartz_ore"
+    },
+    "tags": ["crafting_table"],
+    "unlock": [
+      {
+        "item": "minecraft:quartz_ore"
+      }
+    ],
+    "pattern": [
+      " Q ",
+      "QNQ",
+      " Q "
+    ],
+    "key": {
+      "N": {
+        "item": "minecraft:netherrack"
+      },
+      "Q": {
+        "item": "minecraft:quartz"
+      }
+    },
+    "result": {
+      "item": "minecraft:quartz_ore"
+    }
+  }
+}

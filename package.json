@@ -1,0 +1,7 @@
+{
+  "name": "missing_pieces",
+  "version": "1.0.0",
+  "dependencies": {
+    "@minecraft/server": "1.10.0"
+  }
+}
